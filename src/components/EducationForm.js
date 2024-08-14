@@ -41,9 +41,9 @@ const EducationForm = ({
           />
           <input
             type="text"
-            id={`date-${index}`}
-            name="date"
-            placeholder="Date"
+            id={`year-${index}`}
+            name="year"
+            placeholder="Year of Graduation"
             value={education.date}
             onChange={handleInputChange}
           />
@@ -61,7 +61,7 @@ const EducationForm = ({
         <div>
           <p>{education.school}</p>
           <p>{education.title}</p>
-          <p>{education.date}</p>
+          <p>{education.year}</p>
           <button type="button" onClick={toggleEditMode}>
             Edit
           </button>

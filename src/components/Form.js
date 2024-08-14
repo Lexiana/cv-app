@@ -17,7 +17,7 @@ const Form = () => {
   const [educationList, setEducationList] = useState([{
     school: '',
     title: '',
-    date: '',
+    year: '',
   }]);
   const [experienceList, setExperienceList] = useState([{
     position: '',

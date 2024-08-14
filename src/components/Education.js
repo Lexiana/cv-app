@@ -8,7 +8,7 @@ const Education = ({ setEducationList }) => {
       id: "education-1",
       school: "",
       title: "",
-      date: "",
+      year: "",
       editMode: true,
     },
   ]);
@@ -21,7 +21,7 @@ const Education = ({ setEducationList }) => {
         id: `education-${Date.now()}`,
         school: "",
         title: "",
-        date: "",
+        year: "",
         editMode: true,
       },
     ];

@@ -17,7 +17,7 @@ const CVPreview = ({generalInfo, educationList, experienceList}) => {
             {educationList.map((education, index) => (
                 <div key={index} className='education-item'>
                     <h4>{education.title}</h4>
-                    <p><strong>Date:</strong>{education.date}</p>
+                    <p>{education.year}</p>
                     <p>{education.school}</p>
                 </div>
             ))}
