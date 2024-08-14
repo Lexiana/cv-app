@@ -32,6 +32,7 @@ const Education = () => {
       <h2>Education</h2>
       
         {educationList.map((education, index) => (
+          <div className='entry-block'>
           <EducationForm
             key={index}
             index={index}
@@ -39,6 +40,8 @@ const Education = () => {
             updateEducationEntry={updateEducationEntry}
             deleteEducationEntry={deleteEducationEntry}
           />
+
+          </div>
         ))}
         <div className="button-group">
           <button type="button" onClick={addEducationForm}>

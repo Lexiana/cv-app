@@ -20,7 +20,7 @@ const EducationForm = ({
   };
 
   return (
-    <div className=" entry-block">
+    <div>
       {education.editMode ? (
         <div className="form-item">
           <input
