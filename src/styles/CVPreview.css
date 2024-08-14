@@ -1,0 +1,80 @@
+:root{
+    --primary-color: #333;
+    --secondary-color: #f1f1f1;
+    --tertiary-color: #fff;
+    --quaternary-color: #f9f9f9;
+}
+
+.cv-preview {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 20px;
+    grid-template-areas: 
+    "general-info name"
+    "general-info education"
+    "general-info experience";
+  }
+  
+  
+  .name {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+    grid-area: name;
+
+  }
+  
+  .general-info p, .education-item p, .experience-item p {
+    margin: 5px 0;
+  }
+  
+  .general-info {
+    margin-bottom: 20px;
+    grid-area: general-info;
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+  }
+
+  .Education{
+    grid-area: education;
+  }
+
+  .Experience{
+    grid-area: experience;
+  }
+  
+  .Education, .Experience {
+    margin-bottom: 20px;
+  }
+  
+  .Education h3, .Experience h3 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .education-item, .experience-item {
+    margin-bottom: 15px;
+  }
+  
+  .education-item h4, .experience-item h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .education-item p, .experience-item p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  strong {
+    font-weight: bold;
+  }

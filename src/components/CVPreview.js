@@ -1,16 +1,18 @@
 import React from 'react'
 import '../styles/CVPreview.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faPhone, faGraduationCap, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 
 const CVPreview = ({generalInfo, educationList, experienceList}) => {
   return (
     <div className='cv-preview'>
-        <h2>{generalInfo.firstName} {generalInfo.lastName}</h2>
+        <h2 className='name'>{generalInfo.firstName} {generalInfo.lastName}</h2>
         <div className='general-info'>
-            <p><strong>Email:</strong>{generalInfo.email}</p>
-            <p><strong>Phone:</strong>{generalInfo.phone}</p>
+            <p><FontAwesomeIcon icon={faEnvelope} />{generalInfo.email}</p>
+            <p><FontAwesomeIcon icon={faPhone} />{generalInfo.phone}</p>
         </div>
         <div className='Education'>
-            <h3>Education</h3>
+            <h3><FontAwesomeIcon icon={faGraduationCap} /> Education</h3>
             {educationList.map((education, index) => (
                 <div key={index} className='education-item'>
                     <h4>{education.title}</h4>
@@ -20,7 +22,7 @@ const CVPreview = ({generalInfo, educationList, experienceList}) => {
             ))}
         </div>
         <div className='Experience'>
-            <h3>Experience</h3>
+            <h3><FontAwesomeIcon icon={faBriefcase} /> Experience</h3>
             {experienceList.map((experience, index) => (
                 <div key={index} className='experience-item'>
                     <h4>{experience.position}</h4>
