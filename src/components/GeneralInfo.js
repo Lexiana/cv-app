@@ -30,24 +30,28 @@ const GeneralInfo = ({setGeneralInfo}) => {
         <div className="form-item">
           <input
             type="text"
+            name="firstName"
             placeholder="First Name"
             value={info.firstName}
             onChange={handleInputChange}
           />
           <input
             type="text"
+            name="lastName"
             placeholder="Last Name"
             value={info.lastName}
             onChange={handleInputChange}
           />
           <input
             type="email"
+            name="email"
             placeholder="Email"
             value={info.email}
             onChange={handleInputChange}
           />
           <input
             type="tel"
+            name="phone"
             placeholder="Phone"
             value={info.phone}
             onChange={handleInputChange}
