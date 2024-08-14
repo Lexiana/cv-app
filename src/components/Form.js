@@ -48,7 +48,7 @@ const Form = () => {
       ):(
         <div>
           <CVPreview
-            generalInfo={GeneralInfo}
+            generalInfo={generalInfo}
             educationList={educationList}
             experienceList={experienceList}
           />
