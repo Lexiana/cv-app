@@ -21,7 +21,7 @@ const ExperienceForm = ({
     }
 
   return (
-    <div>
+    <div className="experience-form">
         {experience.editMode ? (
             <div className="form-item">
                 <input
@@ -49,7 +49,7 @@ const ExperienceForm = ({
                     onChange={handleInputChange}
                 />
                 <input
-                    type="text"
+                    type="date"
                     id={`startDate-${index}`}
                     name="startDate"
                     placeholder="Start Date"
@@ -57,7 +57,7 @@ const ExperienceForm = ({
                     onChange={handleInputChange}
                 />
                 <input
-                    type="text"
+                    type="date"
                     id={`endDate-${index}`}
                     name="endDate"
                     placeholder="End Date"
@@ -79,7 +79,7 @@ const ExperienceForm = ({
                 </div>
             </div>
         ):(
-            <div>
+            <div className="experience-display">
                 <p>{experience.position}</p>
                 <p>{experience.company}</p>
                 <p>{experience.city}</p>
@@ -89,7 +89,7 @@ const ExperienceForm = ({
                     Edit
                 </button>
             </div>
-        )};
+        )}
     </div>
   )
 }

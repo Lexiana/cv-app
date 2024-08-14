@@ -5,6 +5,7 @@ const Experience = ({setExperienceList}) => {
   // State to manage multiple experience entries
   const [experienceList, updateExperienceList] = useState([
     {
+      id: "experience-1",
       position: "",
       company: "",
       city: "",
@@ -19,6 +20,7 @@ const Experience = ({setExperienceList}) => {
   const addExperienceForm = () => {
     const newExperienceList = [...experienceList,
       {
+        id: `experience-${Date.now()}`,
         position: "",
         company: "",
         city: "",
@@ -54,9 +56,8 @@ const Experience = ({setExperienceList}) => {
       <h2>Experience</h2>
 
       {experienceList.map((experience, index) => (
-        <div className="entry-block">
+        <div className="entry-block" key={experience.id}>
           <ExperienceForm
-            key={index}
             index={index}
             experience={experience}
             updateExperienceEntry={updateExperienceEntry}
@@ -66,7 +67,7 @@ const Experience = ({setExperienceList}) => {
       ))}
 
       <div className="button-group">
-        <button onClick={addExperienceForm}>Add</button>
+        <button type="button" onClick={addExperienceForm}>Add</button>
       </div>
     </div>
   );

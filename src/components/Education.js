@@ -1,17 +1,29 @@
 import React, { useState } from "react";
 import EducationForm from "./EducationForm";
 
-const Education = ({setEducationList}) => {
+const Education = ({ setEducationList }) => {
   // State to manage multiple education entries
   const [educationList, updateEducationList] = useState([
-    { school: "", title: "", date: "", editMode: true },
+    {
+      id: "education-1",
+      school: "",
+      title: "",
+      date: "",
+      editMode: true,
+    },
   ]);
 
   // Function to add new education form
   const addEducationForm = () => {
     const newEducationList = [
       ...educationList,
-      { school: "", title: "", date: "", editMode: true },
+      {
+        id: `education-${Date.now()}`,
+        school: "",
+        title: "",
+        date: "",
+        editMode: true,
+      },
     ];
     updateEducationList(newEducationList);
     // update info to parent
@@ -40,9 +52,9 @@ const Education = ({setEducationList}) => {
       <h2>Education</h2>
 
       {educationList.map((education, index) => (
-        <div className="entry-block">
+        <div className="entry-block" key={education.id}>
           <EducationForm
-            key={index}
+            
             index={index}
             education={education}
             updateEducationEntry={updateEducationEntry}
