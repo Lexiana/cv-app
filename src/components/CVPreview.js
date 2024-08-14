@@ -8,8 +8,9 @@ const CVPreview = ({generalInfo, educationList, experienceList}) => {
     <div className='cv-preview'>
         <h2 className='name'>{generalInfo.firstName} {generalInfo.lastName}</h2>
         <div className='general-info'>
-            <p><FontAwesomeIcon icon={faEnvelope} />{generalInfo.email}</p>
-            <p><FontAwesomeIcon icon={faPhone} />{generalInfo.phone}</p>
+            <h3>Contact</h3>
+            <p><FontAwesomeIcon className='contact-icon' icon={faEnvelope} />{generalInfo.email}</p>
+            <p><FontAwesomeIcon className='contact-icon' icon={faPhone} />{generalInfo.phone}</p>
         </div>
         <div className='Education'>
             <h3><FontAwesomeIcon icon={faGraduationCap} /> Education</h3>

@@ -15,12 +15,18 @@
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 2fr 4fr;
     grid-gap: 20px;
     grid-template-areas: 
     "general-info name"
     "general-info education"
     "general-info experience";
+    text-align: left;
+  }
+
+  h3{
+    text-align: center;
+    text-transform: uppercase;
   }
   
   
@@ -29,7 +35,9 @@
     font-size: 24px;
     margin-bottom: 10px;
     grid-area: name;
-
+  }
+  .contact-icon{
+    margin-right: 1em;
   }
   
   .general-info p, .education-item p, .experience-item p {
@@ -37,7 +45,7 @@
   }
   
   .general-info {
-    margin-bottom: 20px;
+    padding: 20px;
     grid-area: general-info;
     background-color: var(--primary-color);
     color: var(--tertiary-color);
