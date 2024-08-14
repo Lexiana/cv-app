@@ -1,30 +1,37 @@
 import React, { useState } from "react";
 import EducationForm from "./EducationForm";
 
-const Education = () => {
+const Education = ({setEducationList}) => {
   // State to manage multiple education entries
-  const [educationList, setEducationList] = useState([
+  const [educationList, updateEducationList] = useState([
     { school: "", title: "", date: "", editMode: true },
   ]);
 
   // Function to add new education form
   const addEducationForm = () => {
-    setEducationList([
+    const newEducationList = [
       ...educationList,
       { school: "", title: "", date: "", editMode: true },
-    ]);
+    ];
+    updateEducationList(newEducationList);
+    // update info to parent
+    setEducationList(newEducationList);
   };
 
   // Function to update a specific education entry
   const updateEducationEntry = (index, updatedEntry) => {
     const newEducationList = [...educationList];
     newEducationList[index] = updatedEntry;
+    updateEducationList(newEducationList);
+    // update info to parent
     setEducationList(newEducationList);
   };
 
   // Function to delete a specific education entry
   const deleteEducationEntry = (index) => {
     const newEducationList = educationList.filter((_, i) => i !== index);
+    updateEducationList(newEducationList);
+    // update info to parent
     setEducationList(newEducationList);
   };
 

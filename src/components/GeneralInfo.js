@@ -1,67 +1,69 @@
 import React, { useState } from "react";
 
 
-const GeneralInfo = () => {
-  // user info variables for input
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  // Start edit mode
+const GeneralInfo = ({setGeneralInfo}) => {
+  const [info, setInfo] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+  })
   const [editMode, setEditMode] = useState(true);
-
-  //handle form submit
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setEditMode(false);
+  // handle input change
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    const updatedInfo = { ...info, [name]: value };
+    setInfo(updatedInfo);
+    setGeneralInfo(updatedInfo);
   };
 
-  const handleEdit = () => {
-    setEditMode(true);
+  // function to toggle edit mode
+  const toggleEditMode = () => {
+    setEditMode(!editMode);
   };
+
 
   return (
     <div className=" info-block">
       <h2>General information</h2>
       {editMode ? (
-        <form onSubmit={handleSubmit} className="form-item">
+        <div className="form-item">
           <input
             type="text"
             placeholder="First Name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            value={info.firstName}
+            onChange={handleInputChange}
           />
           <input
             type="text"
             placeholder="Last Name"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            value={info.lastName}
+            onChange={handleInputChange}
           />
           <input
             type="email"
             placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={info.email}
+            onChange={handleInputChange}
           />
           <input
             type="tel"
             placeholder="Phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            value={info.phone}
+            onChange={handleInputChange}
           />
           <div className="button-group">
-            <button type="submit">Save</button>
-            <button type="button" onClick={() => setEditMode(false)}>
-              Cancel
+            <button type="button" onClick={toggleEditMode}>
+              Save
             </button>
           </div>
-        </form>
+        </div>
       ) : (
         <div>
-          <p>Name: {firstName} {lastName}</p>
-          <p>Email: {email}</p>
-          <p>Phone: {phone}</p>
-          <button onClick={() => setEditMode(true)}>Edit</button>
+          <p>Name: {info.firstName} {info.lastName}</p>
+          <p>Email: {info.email}</p>
+          <p>Phone: {info.phone}</p>
+          <button onClick={toggleEditMode}>Edit</button>
         </div>
       )}
     </div>

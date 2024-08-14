@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import ExperienceForm from "./ExperienceForm";
 
-const Experience = () => {
+const Experience = ({setExperienceList}) => {
   // State to manage multiple experience entries
-  const [experienceList, setExperienceList] = useState([
+  const [experienceList, updateExperienceList] = useState([
     {
       position: "",
       company: "",
@@ -17,8 +17,7 @@ const Experience = () => {
 
   // function to add new experience form
   const addExperienceForm = () => {
-    setExperienceList([
-      ...experienceList,
+    const newExperienceList = [...experienceList,
       {
         position: "",
         company: "",
@@ -27,20 +26,26 @@ const Experience = () => {
         endDate: "",
         description: "",
         editMode: true,
-      },
-    ]);
+      }];
+    updateExperienceList(newExperienceList);
+    // update info to parent
+    setExperienceList(newExperienceList);
   };
 
   // function to update a specific experience entry
   const updateExperienceEntry = (index, updatedEntry) => {
     const newExperienceList = [...experienceList];
     newExperienceList[index] = updatedEntry;
+    updateExperienceList(newExperienceList);
+    // update info to parent
     setExperienceList(newExperienceList);
   };
 
   // function to delete a specific experience entry
   const deleteExperienceEntry = (index) => {
     const newExperienceList = experienceList.filter((_, i) => i !== index);
+    updateExperienceList(newExperienceList);
+    // update info to parent
     setExperienceList(newExperienceList);
   };
 
