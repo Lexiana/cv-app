@@ -1,13 +1,70 @@
-import React from 'react'
-import ExperienceForm from './ExperienceForm'
+import React, { useState } from "react";
+import ExperienceForm from "./ExperienceForm";
 
 const Experience = () => {
-  return (
-    <div className='info-block'>
-      <h2>Experience</h2>
-      
-    </div>
-  )
-}
+  // State to manage multiple experience entries
+  const [experienceList, setExperienceList] = useState([
+    {
+      position: "",
+      company: "",
+      city: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+      editMode: true,
+    },
+  ]);
 
-export default Experience
+  // function to add new experience form
+  const addExperienceForm = () => {
+    setExperienceList([
+      ...experienceList,
+      {
+        position: "",
+        company: "",
+        city: "",
+        startDate: "",
+        endDate: "",
+        description: "",
+        editMode: true,
+      },
+    ]);
+  };
+
+  // function to update a specific experience entry
+  const updateExperienceEntry = (index, updatedEntry) => {
+    const newExperienceList = [...experienceList];
+    newExperienceList[index] = updatedEntry;
+    setExperienceList(newExperienceList);
+  };
+
+  // function to delete a specific experience entry
+  const deleteExperienceEntry = (index) => {
+    const newExperienceList = experienceList.filter((_, i) => i !== index);
+    setExperienceList(newExperienceList);
+  };
+
+  return (
+    <div className="info-block">
+      <h2>Experience</h2>
+
+      {experienceList.map((experience, index) => (
+        <div className="entry-block">
+          <ExperienceForm
+            key={index}
+            index={index}
+            experience={experience}
+            updateExperienceEntry={updateExperienceEntry}
+            deleteExperienceEntry={deleteExperienceEntry}
+          />
+        </div>
+      ))}
+
+      <div className="button-group">
+        <button onClick={addExperienceForm}>Add</button>
+      </div>
+    </div>
+  );
+};
+
+export default Experience;
